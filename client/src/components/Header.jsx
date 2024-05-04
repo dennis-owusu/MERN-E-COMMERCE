@@ -51,7 +51,7 @@ const Header = () => {
             <Link to='/contact' className='text-lg'>Contact</Link>
         </Navbar.Link>
       </Navbar.Collapse>
-      <TextInput type='search' placeholder='Search' rightIcon={CiSearch} pill className='w-[25rem]'/>
+      <TextInput type='search' placeholder='Search' rightIcon={CiSearch} className='w-[25rem]'/>
     </Navbar>
 
     </div>
