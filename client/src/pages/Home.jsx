@@ -1,7 +1,18 @@
-import React from 'react'
+
 import '../index.css'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 const Home = () => {
+
+    const { scrollYProgress } = useViewportScroll();
+    const opacity = useTransform(scrollYProgress, [0, 2], [0, 2]);
+    const translateY = useTransform(scrollYProgress, [0, 1], ['100%', '0%']);
+  
+    useEffect(() => {
+      return () => {
+        scrollYProgress.onChange(() => {});
+      };
+    }, [scrollYProgress]);
   return (
     <div className='bg-green-200'>
         <div className='relative'>
@@ -16,11 +27,12 @@ const Home = () => {
           <p className='text-white text-lg mt-4'>Shopping is a bit of a relaxing hobby for me, which is<br className='hidden md:inline'/>  sometimes troubling for the bank balance.</p>
         </div>
         <div className='absolute flex-1 top-0 right-2'>
-            <img className='w-[80rem] h-72 hidden md:block' src='https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e9b930e006824963189865_bg-stage.png'/>
+            <motion.img className='w-[80rem] h-80 hidden md:block ' initial={{x:500}} animate={{x:0}} transition={{duration:1}} src='https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e9b930e006824963189865_bg-stage.png'/>
         </div>
        </div>
         </div>
-        <section className='md:-mt-[20rem] lg:-mt-[43rem] -mt-[2rem] py-10 mx-10'>
+
+        <motion.section className='md:-mt-[20rem] lg:-mt-[43rem] -mt-[2rem] py-10 mx-10' style={{opacity}} >
             <h1 className='font-bold text-3xl mb-6 ml-10'>Shop Our Top Categories</h1>
            <div className='flex flex-col md:flex-row gap-6 justify-center mx-auto items-center w-full'>
     <div className="card">
@@ -43,7 +55,41 @@ const Home = () => {
     <img className='w-60 h-80 rounded-2xl' src="https://i.pinimg.com/474x/6e/e8/8c/6ee88c7603865feaf95d9dcc69ba85a1.jpg" alt="Shoes" />
         </div>
            </div>
-        </section> 
+        </motion.section> 
+                
+        <motion.section className='my-10' style={{translateY}}>
+            <h1 className='text-3xl font-bold ml-10 my-5'>Todays Best Deals For You!</h1>
+        <div className="carousel carousel-center max-w-full p-4 space-x-4 rounded-box">
+  <div className="carousel-item relative">
+    <img src="https://i.pinimg.com/474x/61/70/39/6170393248e0daa3d1d6da9e12a22954.jpg" className="rounded-box w-80 h-96" />
+    <p className='bg-red-500 text-white py-2 px-4 absolute top-3 left-3 rounded-2xl'>New</p>
+  </div> 
+  <div className="carousel-item relative">
+    <img src="https://i.pinimg.com/474x/7c/47/3c/7c473c453f7d184684f6be8319f2202c.jpg" className="rounded-box w-80 h-96" />
+    <p className='bg-red-500 text-white py-2 px-4 absolute top-3 left-3 rounded-2xl'>New</p>
+  </div> 
+  <div className="carousel-item relative">
+    <img src="https://i.pinimg.com/474x/87/e1/bc/87e1bce44024c27407efb490260999ca.jpg" className="rounded-box w-80 h-96" />
+    <p className='bg-red-500 text-white py-2 px-4 absolute top-3 left-3 rounded-2xl'>New</p>
+  </div> 
+  <div className="carousel-item relative">
+    <img src="https://i.pinimg.com/474x/1e/ef/47/1eef47a25c2e2336a45bb7fb3cb39327.jpg" className="rounded-box w-80 h-96" />
+    <p className='bg-red-500 text-white py-2 px-4 absolute top-3 left-3 rounded-2xl'>New</p>
+  </div> 
+  <div className="carousel-item relative">
+    <img src="https://i.pinimg.com/474x/59/88/2f/59882ffccfc1c60374bbd428adcf8334.jpg" className="rounded-box w-80 h-96" />
+    <p className='bg-red-500 text-white py-2 px-4 absolute top-3 left-3 rounded-2xl'>New</p>
+  </div> 
+  <div className="carousel-item relative">
+    <img src="https://i.pinimg.com/474x/cf/ee/e8/cfeee8a67b97ec99629f49cf8e4b3728.jpg" className="rounded-box w-80 h-96" />
+    <p className='bg-red-500 text-white py-2 px-4 absolute top-3 left-3 rounded-2xl'>New</p>
+  </div> 
+  <div className="carousel-item relative">
+    <img src="https://i.pinimg.com/474x/1f/6c/38/1f6c38379c4193aae35bb7a8a0b56cbf.jpg" className="rounded-box w-80 h-96" />
+    <p className='bg-red-500 text-white py-2 px-4 absolute top-3 left-3 rounded-2xl'>New</p>
+  </div>
+</div>
+    </motion.section>
 </div>
   )
 }
