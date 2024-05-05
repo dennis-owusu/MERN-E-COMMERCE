@@ -1,19 +1,23 @@
+/* eslint-disable react/no-unescaped-entities */
 
 import '../index.css'
 import { useEffect } from 'react';
 import { motion, useViewportScroll, useTransform } from 'framer-motion';
+import { Button } from 'flowbite-react';
 const Home = () => {
 
     const { scrollYProgress } = useViewportScroll();
-    const opacity = useTransform(scrollYProgress, [0, 2], [0, 2]);
+    const opacity = useTransform(scrollYProgress, [0, 2], [0.7, 1]);
     const translateY = useTransform(scrollYProgress, [0, 1], ['100%', '0%']);
-  
+    const scale = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
     useEffect(() => {
       return () => {
         scrollYProgress.onChange(() => {});
       };
     }, [scrollYProgress]);
+
   return (
+    <>
     <div className='bg-green-200'>
         <div className='relative'>
        <div className=''>
@@ -90,7 +94,63 @@ const Home = () => {
   </div>
 </div>
     </motion.section>
+
+    <section className=''>
+        <div className='flex flex-col-reverse ml-10 md:flex-row justify-center items-center my-20 gap-12'>
+                {/* left */}
+            <div className='flex-1'>
+                <h1 className='text-5xl font-bold'>GET THE BEST QUALITY<br className='hidden md:inline'/> SOUND EXPERIENCE</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            </div>
+            {/* right */}
+            <div  className='flex-1 mt-16'>
+                <motion.img style={{scale: scale}} initial={{scale:0, x:180}} animate={{scale:1, x:0}} transition={{duration:1}} className='w-[25rem] h-[27rem]' src='../head-removebg-preview.png'/>
+            </div>
+        </div>
+    </section>
+    
+    <section className=' bg-orange-200'>
+        <div className='flex flex-col md:flex-row justify-center items-center'>
+            {/* left */}
+            <motion.div style={{translateY:translateY}} transition={{duration:1}} className='ml-10 flex-1 text-green-900'>
+               <h1 className='text-5xl font-bold'>Get 5% Cash Back</h1>
+               <p className='text-xl mt-3 font-medium'>on Shopcart.com</p>
+               <Button gradientDuoTone='greenToBlue' outline className='mt-6'>Learn More</Button>
+            </motion.div>
+            {/* right */}
+            <div className='flex-1'>
+                <motion.img style={{scale:scale}} transition={{duration:1}} className='w-[40rem] h-[20rem]' src='../card.png'/>
+            </div>
+        </div>
+    </section>
+    <section className='mt-20 pb-10'>
+        <h1 className='text-3xl font-bold ml-10 my-3'>Services To Help You Shop</h1>
+   <div className='flex flex-col md:flex-row gap-6 justify-center items-center'>
+   <div className="card w-96 bg-base-100 shadow-xl">
+  <div className="card-body">
+    <h2 className="card-title">Frequently Asked Questions</h2>
+    <p>Updates on safe Shopping in our Stores</p>
+  </div>
+ <img className='rounded-lg' src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e55b939fea169c0292_faq-min.png" alt="" />
 </div>
+<div className="card w-96 bg-base-100 shadow-xl">
+  <div className="card-body">
+    <h2 className="card-title">Online Payment Process</h2>
+    <p>Updates on safe Shopping in our Stores</p>
+  </div>
+ <img className='rounded-lg' src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e6707380718425e697_onlie%20payment-min.png" alt="" />
+</div>
+<div className="card w-96 bg-base-100 shadow-xl">
+  <div className="card-body">
+    <h2 className="card-title">Home Delivery Options</h2>
+    <p>Updates on safe Shopping in our Stores</p>
+  </div>
+ <img className='rounded-lg' src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e544663ba3d0fd2bb8_home%20delivery-min.png" alt="" />
+</div>
+   </div>
+    </section>
+</div>
+    </>
   )
 }
 
