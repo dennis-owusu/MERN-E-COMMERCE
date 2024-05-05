@@ -1,6 +1,7 @@
 import React from 'react'
 import { Avatar, Button, Dropdown, Navbar, TextInput } from "flowbite-react";
 import { CiSearch } from "react-icons/ci";
+import { FaSearch } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 const Header = () => {
   return (
@@ -10,11 +11,12 @@ const Header = () => {
         <img src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
       </Navbar.Brand>
       <div className="flex md:order-2">
+      <Button className='md:hidden mr-4' outline><FaSearch/></Button>
         <Dropdown
           arrowIcon={false}
           inline
           label={
-            <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
+            <Avatar alt="" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
           }
         >
           <Dropdown.Header>
@@ -51,7 +53,8 @@ const Header = () => {
             <Link to='/contact' className='text-lg'>Contact</Link>
         </Navbar.Link>
       </Navbar.Collapse>
-      <TextInput type='search' placeholder='Search' rightIcon={CiSearch} className='w-[25rem]'/>
+      <TextInput type='search' placeholder='Search' rightIcon={CiSearch} className='w-[25rem] hidden md:inline'/>
+      
     </Navbar>
 
     </div>
