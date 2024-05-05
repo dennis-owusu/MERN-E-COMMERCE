@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 })
 
 mongoose.connect(process.env.MONGO_URI).then(()=> {
-    console.log("Mongodb connected")
+    console.log("MongoDB connected")
 })
 
 app.listen(PORT, (req, res) =>{
