@@ -7,7 +7,7 @@ import userRoute from './routes/auth.route.js'
 dotenv.config()
 
 const PORT = 3000
-const app = express()
+const app = express() 
 
 app.use(cors())
 app.use(express.json())
