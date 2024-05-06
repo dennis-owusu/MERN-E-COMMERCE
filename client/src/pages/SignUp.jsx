@@ -16,6 +16,9 @@ const SignUp = () => {
 
   const handleSubmit = async(e) =>{
     e.preventDefault()
+    if(!formData.email || !formData.password || formData.email === '' || formData.password === ''){
+      return setErrorMessage('Please fill out all fields')
+    }
     setLoading(true)
     setErrorMessage(false)
     try {
@@ -37,7 +40,6 @@ const SignUp = () => {
       }
     } catch (error) {
       console.log(error)
-      setLoading(false)
     }
   }
   return (
