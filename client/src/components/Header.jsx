@@ -1,21 +1,30 @@
 import React from 'react'
 import { Avatar, Button, Dropdown, Navbar, TextInput } from "flowbite-react";
 import { CiSearch } from "react-icons/ci";
-import { FaSearch } from "react-icons/fa";
+import { FaMoon, FaSearch, FaSun } from "react-icons/fa";
+import {useSelector, useDispatch} from 'react-redux'
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { toggleTheme } from '../redux/theme/themeSlice';
 const Header = () => {
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const path = useLocation().pathname
+  const {theme} = useSelector((state)=> state.theme)
   return (
     <div>
     <Navbar fluid rounded className=' py-5 border-b-2'>
       <Navbar.Brand href="https://flowbite-react.com">
-        <img src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
+        <img src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg" className="mr-3 h-6 sm:h-9 dark:text-green-500" alt="Flowbite React Logo" />
       </Navbar.Brand>
       <div className="flex md:order-2">
       <Button className='md:hidden mr-4' outline><FaSearch/></Button>
+      <Button className='mr-3' gradientDuoTone='greenToBlue' onClick={()=> dispatch(toggleTheme())} outline pill>
+        {
+          theme === 'light' ? <FaMoon/> : <FaSun/>
+        }
+      </Button>
         <Dropdown
           arrowIcon={false}
           inline

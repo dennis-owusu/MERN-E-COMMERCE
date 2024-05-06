@@ -46,7 +46,7 @@ const SignIn = () => {
     }
   }
   return (
-    <div className='flex flex-col md:flex-row-reverse gap-0 justify-center items-center mx-auto w-full shadow-2xl bg-green- min-h-screen bg-green-100'>
+    <div className='flex flex-col md:flex-row-reverse gap-0 justify-center items-center mx-auto w-full shadow-2xl min-h-screen'>
       {/* left */}
       <motion.div initial={{scale:0}} animate={{scale:1}} transition={{duration:1}} className='flex-1 hidden md:inline'>
         <img className='w-[45rem] border-r rounded-l-3xl h-[40rem]' src='https://i.pinimg.com/474x/80/8c/a9/808ca9faf763e259fcf4976ce6933f6e.jpg'/>
