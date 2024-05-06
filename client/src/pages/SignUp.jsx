@@ -2,6 +2,7 @@ import { Alert, Button, Spinner, TextInput } from 'flowbite-react'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
+import { motion } from 'framer-motion';
 
 const SignUp = () => {
   const navigate = useNavigate()
@@ -43,16 +44,18 @@ const SignUp = () => {
     }
   }
   return (
-    <div className='flex flex-col md:flex-row gap-0 justify-center items-center mx-auto w-full shadow-2xl bg-green-100'>
+    <div className='flex flex-col md:flex-row gap-0 justify-center items-center mx-auto w-full shadow-2xl bg-green-100 min-h-screen'>
       {/* left */}
-      <div className='flex-1 hidden md:inline'>
+      <motion.div initial={{scale:0}} animate={{scale:1}} transition={{duration:1}} className='flex-1 hidden md:inline'>
         <img className='w-[45rem] border-r rounded-r-3xl h-[40rem]' src='https://i.pinimg.com/474x/80/8c/a9/808ca9faf763e259fcf4976ce6933f6e.jpg'/>
-      </div>
+      </motion.div>
       {/* right */}
       <div className='flex-1 space-y-5 justify-center items-center min-h-screen md:min-h-0'>
-        <h1 className='text-5xl font-semibold text-center mt-20 md:mt-0'>Hello <span className='text-green-500'>Fams</span></h1>
+       <motion.div initial={{y:-960}} animate={{y:0}} transition={{duration:1, delay:1, type:'spring', stiffness:60}}>
+       <h1 className='text-5xl font-semibold text-center mt-20 md:mt-0'>Hello <span className='text-green-500'>Fams</span></h1>
         <p className='text-center text-gray-400'>Discover the Razer headset you should be gaming with</p>
-        <form onSubmit={handleSubmit} className='space-y-4 md:mx-20'>
+       </motion.div>
+        <motion.form initial={{x:360}} animate={{x:0}} transition={{duration:1}} onSubmit={handleSubmit} className='space-y-4 md:mx-20'>
           <TextInput type='text' id='username' placeholder='Username' onChange={handleChange}/>
           <TextInput type='email' id='email' placeholder='name@gmail.com' onChange={handleChange}/>
           <TextInput type='password' id='password' placeholder='Enter your password' onChange={handleChange}/>
@@ -69,7 +72,7 @@ const SignUp = () => {
         {
           errorMessage && (<Alert color='failure'>{errorMessage}</Alert>)
         }
-        </form>
+        </motion.form>
       </div>
     </div>
   )
