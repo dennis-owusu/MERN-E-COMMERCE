@@ -29,8 +29,8 @@ const SignUp = () => {
         body: JSON.stringify(formData)
       })
       const data = await res.json()
-      if(!res.ok) {
-        setErrorMessage(data)
+      if(data.success === false) {
+        setErrorMessage(data.message)
         setLoading(false)
       }else{
         toast.success('Sign up successfully', {

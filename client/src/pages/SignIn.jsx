@@ -35,7 +35,7 @@ const SignIn = () => {
         dispatch(signInFailure(data.message))
       }else{
         dispatch(signInSuccess(data))
-        toast.success('Sign up successfully', {
+        toast.success('Sign in successfully', {
           position: 'top-center'
         })
         navigate('/') 
