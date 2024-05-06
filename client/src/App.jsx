@@ -5,9 +5,13 @@ import SignUp from "./pages/SignUp"
 import Header from "./components/Header"
 import FooterComp from "./components/FooterComp"
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
 
   return (
+    <>
     <BrowserRouter>
     <Header/>
     <Routes>
@@ -17,6 +21,9 @@ function App() {
     </Routes>
     <FooterComp/>
     </BrowserRouter>
+    <ToastContainer/>
+    </>
+    
   )
 }
 
