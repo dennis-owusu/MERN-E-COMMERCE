@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <>
-    <div className='bg-green-200'>
+    <div className=''>
         <div className='relative'>
        <div className=''>
        <svg id="svg" width='100%' viewBox="0 0 1080 1035" xmlns="http://www.w3.org/2000/svg" className="transition overflow-hidden duration-300 ease-in-out delay-150">
@@ -116,22 +116,22 @@ const Home = () => {
         <h1 className='text-3xl font-bold ml-10 my-3'>Services To Help You Shop</h1>
    <div className='flex flex-col md:flex-row gap-6 justify-center items-center'>
    <div className="card w-96 bg-base-100 shadow-xl">
-  <div className="card-body">
-    <h2 className="card-title">Frequently Asked Questions</h2>
+  <div className="card-body dark:text-black">
+    <h2 className="card-title dark:text-black">Frequently Asked Questions</h2>
     <p>Updates on safe Shopping in our Stores</p>
   </div>
  <img className='rounded-lg' src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e55b939fea169c0292_faq-min.png" alt="" />
 </div>
 <div className="card w-96 bg-base-100 shadow-xl">
-  <div className="card-body">
-    <h2 className="card-title">Online Payment Process</h2>
+  <div className="card-body dark:text-black">
+    <h2 className="card-title ">Online Payment Process</h2>
     <p>Updates on safe Shopping in our Stores</p>
   </div>
  <img className='rounded-lg' src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e6707380718425e697_onlie%20payment-min.png" alt="" />
 </div>
 <div className="card w-96 bg-base-100 shadow-xl">
-  <div className="card-body">
-    <h2 className="card-title">Home Delivery Options</h2>
+  <div className="card-body dark:text-black">
+    <h2 className="card-title dark:text-black">Home Delivery Options</h2>
     <p>Updates on safe Shopping in our Stores</p>
   </div>
  <img className='rounded-lg' src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e544663ba3d0fd2bb8_home%20delivery-min.png" alt="" />
