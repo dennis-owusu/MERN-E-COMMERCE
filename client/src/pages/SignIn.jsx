@@ -1,13 +1,16 @@
 import { Alert, Button, Spinner, TextInput } from 'flowbite-react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { signInFailure, signInStart, signInSuccess } from '../redux/user/userSlice';
 
 const SignIn = () => {
+  const dispatch = useDispatch()
+  const {error:errorMessage} = useSelector((state) => state.user)
   const navigate = useNavigate()
   const [formData, setFormData] = useState({})
-  const [errorMessage, setErrorMessage] = useState(null)
   const [loading, setLoading] = useState(false)
   console.log(formData)
 
@@ -18,10 +21,9 @@ const SignIn = () => {
   const handleSubmit = async(e) =>{
     e.preventDefault()
     if(!formData.email || !formData.password || formData.email === '' || formData.password === ''){
-      return setErrorMessage('Please fill out all fields')
-    }
-    setLoading(true)
-    setErrorMessage(false)
+      return dispatch(signInFailure('Please fill out all fields'))
+    } 
+    dispatch(signInStart())
     try {
       const res = await fetch('/api/auth/signin', {
         method: 'POST',
@@ -29,15 +31,14 @@ const SignIn = () => {
         body: JSON.stringify(formData)
       })
       const data = await res.json()
-      if(data.success === false) {
-        setErrorMessage(data.message)
-        setLoading(false)
+      if(!res.ok) {
+        dispatch(signInFailure(data.message))
       }else{
+        dispatch(signInSuccess(data))
         toast.success('Sign up successfully', {
           position: 'top-center'
         })
-        navigate('/')
-        setLoading(false)
+        navigate('/') 
       }
     } catch (error) {
       console.log(error)
