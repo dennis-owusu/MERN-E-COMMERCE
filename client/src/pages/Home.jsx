@@ -1,20 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import '../index.css'
-import { useEffect } from 'react';
-import { motion, useViewportScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Button } from 'flowbite-react';
 const Home = () => {
-
-    const { scrollYProgress } = useViewportScroll();
-    const opacity = useTransform(scrollYProgress, [0, 2], [0.7, 1]);
-    const translateY = useTransform(scrollYProgress, [0, 1], ['100%', '0%']);
-    const scale = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
-    useEffect(() => {
-      return () => {
-        scrollYProgress.onChange(() => {});
-      };
-    }, [scrollYProgress]);
 
   return (
     <>
@@ -36,7 +25,7 @@ const Home = () => {
        </div>
         </div>
 
-        <motion.section className='md:-mt-[20rem] lg:-mt-[43rem] -mt-[2rem] py-10 mx-10' style={{opacity}} >
+        <section className='md:-mt-[20rem] lg:-mt-[43rem] -mt-[2rem] py-10 mx-10' >
             <h1 className='font-bold text-3xl mb-6 ml-10'>Shop Our Top Categories</h1>
            <div className='flex flex-col md:flex-row gap-6 justify-center mx-auto items-center w-full'>
     <div className="card">
@@ -59,9 +48,9 @@ const Home = () => {
     <img className='w-60 h-80 rounded-2xl' src="https://i.pinimg.com/474x/6e/e8/8c/6ee88c7603865feaf95d9dcc69ba85a1.jpg" alt="Shoes" />
         </div>
            </div>
-        </motion.section> 
+        </section> 
                 
-        <motion.section className='my-10' style={{translateY}}>
+        <section className='my-10'>
             <h1 className='text-3xl font-bold ml-10 my-5'>Todays Best Deals For You!</h1>
         <div className="carousel carousel-center max-w-full p-4 space-x-4 rounded-box">
   <div className="carousel-item relative">
@@ -93,7 +82,7 @@ const Home = () => {
     <p className='bg-red-500 text-white py-2 px-4 absolute top-3 left-3 rounded-2xl'>New</p>
   </div>
 </div>
-    </motion.section>
+    </section>
 
     <section className=''>
         <div className='flex flex-col-reverse ml-10 md:flex-row justify-center items-center my-20 gap-12'>
@@ -104,7 +93,7 @@ const Home = () => {
             </div>
             {/* right */}
             <div  className='flex-1 mt-16'>
-                <motion.img style={{scale: scale}} initial={{scale:0, x:180}} animate={{scale:1, x:0}} transition={{duration:1}} className='w-[25rem] h-[27rem]' src='../head-removebg-preview.png'/>
+                <motion.img initial={{scale:0, x:180}} animate={{scale:1, x:0}} transition={{duration:1}} className='w-[25rem] h-[27rem]' src='../head-removebg-preview.png'/>
             </div>
         </div>
     </section>
@@ -112,14 +101,14 @@ const Home = () => {
     <section className=' bg-orange-200'>
         <div className='flex flex-col md:flex-row justify-center items-center'>
             {/* left */}
-            <motion.div style={{translateY:translateY}} transition={{duration:1}} className='ml-10 flex-1 text-green-900'>
+            <div className='ml-10 flex-1 text-green-900'>
                <h1 className='text-5xl font-bold'>Get 5% Cash Back</h1>
                <p className='text-xl mt-3 font-medium'>on Shopcart.com</p>
                <Button gradientDuoTone='greenToBlue' outline className='mt-6'>Learn More</Button>
-            </motion.div>
+            </div>
             {/* right */}
             <div className='flex-1'>
-                <motion.img style={{scale:scale}} transition={{duration:1}} className='w-[40rem] h-[20rem]' src='../card.png'/>
+                <img className='w-[40rem] h-[20rem]' src='../card.png'/>
             </div>
         </div>
     </section>
