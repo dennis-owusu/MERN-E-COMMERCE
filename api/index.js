@@ -11,7 +11,7 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use(cookieParser()) 
+app.use(cookieParser())  
 
 app.get('/', (req, res) => {
     res.send("Hello World")
@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGO_URI).then(()=> {
     console.log("MongoDB connected")
 })
 
-app.listen(PORT, (req, res) =>{
+app.listen(PORT, () =>{
     console.log(`Server is running on port ${PORT}`)
 }) 
 app.use((err, req, res, next) => {

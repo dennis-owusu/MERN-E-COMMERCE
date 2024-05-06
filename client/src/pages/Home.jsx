@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <>
-    <div className=''>
+    <div className={``}>
         <div className='relative'>
        <div className=''>
        <svg id="svg" width='100%' viewBox="0 0 1080 1035" xmlns="http://www.w3.org/2000/svg" className="transition overflow-hidden duration-300 ease-in-out delay-150">

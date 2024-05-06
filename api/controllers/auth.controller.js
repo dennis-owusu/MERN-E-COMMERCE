@@ -12,7 +12,7 @@ export const signup = async (req, res, next) => {
     const hashedPassword = bcryptjs.hashSync(password, 10)
 
     const newUser = new User({
-        username,
+        username, 
         email,
         password: hashedPassword
     })
@@ -23,9 +23,6 @@ export const signup = async (req, res, next) => {
         return next(error)
     }
 }
-
-
-
 
 export const signin = async (req, res, next) => {
     const {email, password} = req.body

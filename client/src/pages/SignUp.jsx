@@ -1,5 +1,5 @@
 import { Alert, Button, Spinner, TextInput } from 'flowbite-react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
@@ -29,15 +29,14 @@ const SignUp = () => {
         body: JSON.stringify(formData)
       })
       const data = await res.json()
-      if(data.success === false) {
-        setErrorMessage(data.message)
+      if(!res.ok) {
+        setErrorMessage(data)
         setLoading(false)
       }else{
         toast.success('Sign up successfully', {
           position: 'top-center'
         })
         navigate('/sign-in')
-        setLoading(false)
       }
     } catch (error) {
       console.log(error)
