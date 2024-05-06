@@ -2,8 +2,12 @@ import React from 'react'
 import { Avatar, Button, Dropdown, Navbar, TextInput } from "flowbite-react";
 import { CiSearch } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Header = () => {
+
+  const navigate = useNavigate()
+  const path = useLocation().pathname
   return (
     <div>
     <Navbar fluid rounded className=' py-5 border-b-2'>
@@ -29,7 +33,7 @@ const Header = () => {
           <Dropdown.Divider />
           <Dropdown.Item>Sign out</Dropdown.Item>
         </Dropdown>
-        <Button gradientDuoTone='greenToBlue' outline className='ml-3'>Sign In</Button>
+        <Button gradientDuoTone='greenToBlue' outline className='ml-3' onClick={()=> navigate('/sign-in')}>Sign In</Button>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
