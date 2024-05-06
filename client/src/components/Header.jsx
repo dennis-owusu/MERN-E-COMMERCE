@@ -10,6 +10,7 @@ const Header = () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const {currentUser} = useSelector((state) => state.user)
   const path = useLocation().pathname
   const {theme} = useSelector((state)=> state.theme)
   return (
@@ -42,27 +43,31 @@ const Header = () => {
           <Dropdown.Divider />
           <Dropdown.Item>Sign out</Dropdown.Item>
         </Dropdown>
-        <Button gradientDuoTone='greenToBlue' outline className='ml-3' onClick={()=> navigate('/sign-in')}>Sign In</Button>
+        <button className={`ml-1 border py-2 px-4 rounded-lg text-white hover:opacity-70 transition-all ease-in-out duration-300 ${currentUser ? "bg-none border-none" : "bg-green-400"}`} onClick={()=> navigate('/sign-in')}>
+          {
+            currentUser ? null : "Sign In"
+          }
+        </button>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="#" active as={'div'}>
+        <Navbar.Link href="#" active={path === '/'} as={'div'}>
           <Link to='/' className='text-lg'>
           Home
           </Link>
         </Navbar.Link>
-        <Navbar.Link href="#" as={'div'}>
+        <Navbar.Link href="#" active={path === '/about'} as={'div'}>
             <Link to='/about' className='text-lg'>
             About
             </Link>
         </Navbar.Link>
-        <Navbar.Link href="#" as={'div'}>
+        <Navbar.Link href="#" active={path === '/service'} as={'div'}>
             <Link to='/service' className='text-lg'>Services</Link>
         </Navbar.Link>
-        <Navbar.Link href="#" as={'div'}>
+        <Navbar.Link href="#" active={path === '/pricing'} as={'div'}>
             <Link to='/pricing' className='text-lg'>Pricing</Link>
         </Navbar.Link> 
-        <Navbar.Link href="#" as={'div'}>
+        <Navbar.Link href="#" active={path === '/contact'} as={'div'}>
             <Link to='/contact' className='text-lg'>Contact</Link>
         </Navbar.Link>
       </Navbar.Collapse>
