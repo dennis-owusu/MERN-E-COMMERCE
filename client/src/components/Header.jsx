@@ -29,7 +29,7 @@ const Header = () => {
           arrowIcon={false}
           inline
           label={
-            <Avatar alt="" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
+            <Avatar alt="" img={currentUser.profilePicture} rounded />
           }
         >
           <Dropdown.Header>
@@ -42,7 +42,7 @@ const Header = () => {
           <Dropdown.Divider />
           <Dropdown.Item>Sign out</Dropdown.Item>
         </Dropdown>
-        <button className={`ml-1 border py-2 px-4 rounded-lg text-white hover:opacity-70 transition-all ease-in-out duration-300 ${currentUser ? "bg-none border-none" : "bg-green-400"}`} onClick={()=> navigate('/sign-in')}>
+        <button className={`ml-1 border py-2 px-4 rounded-lg text-white hover:opacity-70 transition-all ease-in-out duration-300 ${currentUser ? "hidden border-none" : "bg-green-400"}`} onClick={()=> navigate('/sign-in')}>
           {
             currentUser ? null : "Sign In"
           }
