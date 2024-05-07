@@ -28,10 +28,10 @@ const DashSidebar = () => {
     }, [location.search]);
   return (
     <div>
-         <div className="h-[300px] max-h-[300px]">
+         <div className="">
       <div className="flex flex-col items-center">
-        <button onClick={() => setIsOpen(true)} className='mr-96 md:mr-0'><IoMenu className='w-8 h-8'/></button>
-        <div className="h-[100rem]" />
+        <button onClick={() => setIsOpen(true)} className='mr-[35rem] md:mr-0 lg:mr-28'><IoMenu className='w-8 h-8'/></button>
+        <div className="" />
       </div>
       <Drawer open={isOpen} onClose={handleClose}>
         <Drawer.Header title="MENU" titleIcon={() => <></>} />
