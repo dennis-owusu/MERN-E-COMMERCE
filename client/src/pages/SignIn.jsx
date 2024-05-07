@@ -1,6 +1,6 @@
 import { Alert, Button, Spinner, TextInput } from 'flowbite-react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
@@ -76,6 +76,10 @@ const SignIn = () => {
         {
           errorMessage && (<Alert color='failure'>{errorMessage}</Alert>)
         }
+          <div className='flex justify-between items-center'>
+            <p>Do not have an Account?</p>
+            <Link to='/sign-up' className='underline text-green-500'>Sign Up</Link>
+          </div>
         </motion.form>
       </div>
     </div>
