@@ -5,10 +5,11 @@ import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { signInFailure, signInStart, signInSuccess } from '../redux/user/userSlice';
+import OAuth from '../components/OAuth';
 
 const SignIn = () => {
   const dispatch = useDispatch()
-  const {error:errorMessage} = useSelector((state) => state.user)
+  const [errorMessage, setErrorMessage] = useState(null)
   const navigate = useNavigate()
   const [formData, setFormData] = useState({})
   const [loading, setLoading] = useState(false)
@@ -24,6 +25,7 @@ const SignIn = () => {
       return dispatch(signInFailure('Please fill out all fields'))
     } 
     dispatch(signInStart())
+    setErrorMessage(null)
     try {
       const res = await fetch('/api/auth/signin', {
         method: 'POST',
@@ -46,7 +48,7 @@ const SignIn = () => {
     }
   }
   return (
-    <div className='flex flex-col md:flex-row-reverse gap-0 justify-center items-center mx-auto w-full shadow-2xl min-h-screen'>
+    <div className='flex flex-col bg-green-100 dark:bg-[rgb(16,23,42)] md:flex-row-reverse gap-0 justify-center items-center mx-auto w-full shadow-2xl min-h-screen'>
       {/* left */}
       <motion.div initial={{scale:0}} animate={{scale:1}} transition={{duration:1}} className='flex-1 hidden md:inline'>
         <img className='w-[45rem] border-r rounded-l-3xl h-[40rem]' src='https://i.pinimg.com/474x/80/8c/a9/808ca9faf763e259fcf4976ce6933f6e.jpg'/>
@@ -70,6 +72,7 @@ const SignIn = () => {
               ) : ('Sign In')
             }
           </Button>
+          <OAuth/>
         {
           errorMessage && (<Alert color='failure'>{errorMessage}</Alert>)
         }
