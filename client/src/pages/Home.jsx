@@ -1,14 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-
 import '../index.css'
 import { motion } from 'framer-motion';
 import { Button } from 'flowbite-react';
-import { useState } from 'react';
 const Home = () => {
 
   return (
     <>
-    <div className="bg-green-300">
+    <div className="bg-green-300 dark:bg-[rgb(16,23,42)]">
         <div className='relative'>
        <div className=''>
        <svg id="svg" width='100%' viewBox="0 0 1080 1035" xmlns="http://www.w3.org/2000/svg" className="transition overflow-hidden duration-300 ease-in-out delay-150">
