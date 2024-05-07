@@ -9,10 +9,10 @@ dotenv.config()
 const PORT = 3000
 const app = express() 
 
-app.use(cors())
+app.use(cors()) 
 app.use(express.json())
 app.use(cookieParser())  
-
+ 
 app.get('/', (req, res) => {
     res.send("Hello World")
 })

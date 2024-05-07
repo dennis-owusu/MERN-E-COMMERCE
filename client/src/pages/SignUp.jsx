@@ -1,6 +1,6 @@
 import { Alert, Button, Spinner, TextInput } from 'flowbite-react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 import OAuth from '../components/OAuth';
@@ -55,7 +55,7 @@ const SignUp = () => {
        <h1 className='text-5xl font-semibold text-center mt-20 md:mt-0'>Hello <span className='text-green-500'>Fams</span></h1>
         <p className='text-center text-gray-400'>Discover the Razer headset you should be gaming with</p>
        </motion.div>
-        <motion.form initial={{x:360}} animate={{x:0}} transition={{duration:1}} onSubmit={handleSubmit} className='space-y-4 md:mx-20'>
+        <motion.form initial={{x:960}} animate={{x:0}} transition={{duration:1}} onSubmit={handleSubmit} className='space-y-4 md:mx-20'>
           <TextInput type='text' id='username' placeholder='Username' onChange={handleChange}/>
           <TextInput type='email' id='email' placeholder='name@gmail.com' onChange={handleChange}/>
           <TextInput type='password' id='password' placeholder='Enter your password' onChange={handleChange}/>
@@ -73,6 +73,10 @@ const SignUp = () => {
         {
           errorMessage && (<Alert color='failure'>{errorMessage}</Alert>)
         }
+          <div className='flex justify-between items-center'>
+            <p>Have an Account?</p>
+            <Link to='/sign-in' className='underline text-green-500'>Sign In</Link>
+          </div>
         </motion.form>
       </div>
     </div>
