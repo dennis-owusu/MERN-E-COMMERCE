@@ -13,8 +13,10 @@ import {
   HiShoppingBag,
   HiUsers,
 } from "react-icons/hi";
+import { useNavigate } from 'react-router-dom';
 const DashSidebar = () => {
-    const [isOpen, setIsOpen] = useState(true);
+  const navigate = useNavigate()
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleClose = () => setIsOpen(false);
   
@@ -30,7 +32,7 @@ const DashSidebar = () => {
     <div>
          <div className="">
       <div className="flex flex-col items-center">
-        <button onClick={() => setIsOpen(true)} className='mr-[35rem] md:mr-0 lg:mr-28'><IoMenu className='w-8 h-8'/></button>
+        <button onClick={() => setIsOpen(true)} className='mr-[29rem] md:mr-0 lg:mr-28'><IoMenu className='w-8 h-8'/></button>
         <div className="" />
       </div>
       <Drawer open={isOpen} onClose={handleClose}>
@@ -47,7 +49,7 @@ const DashSidebar = () => {
                 </form>
                 <Sidebar.Items>
                   <Sidebar.ItemGroup>
-                    <Sidebar.Item href="/" icon={HiChartPie}>
+                    <Sidebar.Item onClick={()=>navigate('/dashboard?tab=charts')} icon={HiChartPie}>
                       Dashboard
                     </Sidebar.Item>
                     <Sidebar.Item href="/e-commerce/products" icon={HiShoppingBag}>
