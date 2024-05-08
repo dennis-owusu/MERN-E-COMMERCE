@@ -13,7 +13,7 @@ const Header = () => {
   const path = useLocation().pathname
   const {theme} = useSelector((state)=> state.theme)
   return (
-    <div className=' top-0 z-50'>
+    <div className='sticky top-0 z-30'>
     <Navbar fluid rounded className=' py-5 border-b-2'>
       <Navbar.Brand onClick={()=>navigate('/')} className='cursor-pointer'>
         <img src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e86ab4c21faa7bc0bd90dd_Logo.svg" className="mr-3 h-6 sm:h-9 dark:text-green-500" alt="Flowbite React Logo" />
@@ -29,12 +29,12 @@ const Header = () => {
           arrowIcon={false}
           inline
           label={
-            <Avatar alt="" img={currentUser.profilePicture} rounded />
-          }
+            <Avatar alt="" img={currentUser?.profilePicture} rounded />
+          } 
         >
           <Dropdown.Header>
-            <span className="block text-sm">@{currentUser.username}</span>
-            <span className="block truncate text-sm font-medium">{currentUser.email}</span>
+            <span className="block text-sm">@{currentUser?.username}</span>
+            <span className="block truncate text-sm font-medium">{currentUser?.email}</span>
           </Dropdown.Header>
           <Dropdown.Item  onClick={()=>navigate('/dashboard')}>Dashboard</Dropdown.Item>
           <Dropdown.Item onClick={()=>navigate('/dashboard?tab=profile')}>Profile</Dropdown.Item>

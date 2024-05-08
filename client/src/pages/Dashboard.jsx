@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Profile from './Profile';
 import DashSidebar from '../components/DashSidebar';
+import Chart from '../components/Chart';
 
 const Dashboard = () => {
     const [tab, setTab] = useState('');
@@ -20,6 +21,7 @@ const Dashboard = () => {
     {/* profile... */}
     {tab === 'profile' && <Profile />}
     {/* posts... */}
+    {tab === 'charts' && <Chart/>}
   </div>
   )
 }
