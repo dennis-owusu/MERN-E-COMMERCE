@@ -40,7 +40,7 @@ export const signin = async (req, res, next) => {
         return next(errorHandler(403, 'Incorrect password'))
     }
 
-    const token = jwt.sign({id: validUser._id}, process.env.JWT_SECRET)
+    const token = jwt.sign({id: validUser._id, isAdmin:validUser.isAdmin}, process.env.JWT_SECRET)
     const {password:pass, ...rest} = validUser._doc
     
     res.status(200).cookie('access_token', token, {
@@ -59,7 +59,7 @@ export const google = async(req, res, next) => {
         const user = await User.findOne({email})
         if(user){
             const {password, ...rest} = user._doc
-            const token = jwt.sign({id:user._id}, process.env.JWT_SECRET)
+            const token = jwt.sign({id:user._id, isAdmin:user.isAdmin}, process.env.JWT_SECRET)
             res.status(200).cookie('acces_token', token, {
                 httpOnly: true
             }).json(rest)
@@ -73,9 +73,13 @@ export const google = async(req, res, next) => {
                 password: hashedPassword,
                 profilePicture: googlePhotoUrl
             })
- 
+            const {password, ...rest} = newUser._doc
+            const token = jwt.sign({id:newUser._id, isAdmin:newUser.isAdmin}, process.env.JWT_SECRET)
+            res.status(200).cookie('acces_token', token, {
+                httpOnly: true
+            }).json(rest)
             await newUser.save()
-            res.status(200).json('Sign in successful')
+ 
         }
     } catch (error) {
         next(error.message) 
