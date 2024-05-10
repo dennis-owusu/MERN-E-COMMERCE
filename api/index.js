@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv'
 import userRoute from './routes/auth.route.js'
 import updateRoute from './routes/user.route.js'
+import productRoute from './routes/products.route.js'
 dotenv.config()
 
 const PORT = 3000
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', userRoute)
 app.use('/api/user', updateRoute)
+app.use('/api/user', productRoute)
 mongoose.connect(process.env.MONGO_URI).then(()=> {
     console.log("MongoDB connected")
 })
