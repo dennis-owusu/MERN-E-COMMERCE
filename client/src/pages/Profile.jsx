@@ -169,6 +169,11 @@ const Profile = () => {
             <TextInput type='email' id='email' defaultValue={currentUser.email} onChange={handleChange}/>
             <TextInput type='password' id='password' placeholder='Password' onChange={handleChange}/>
             <Button type='submit' className='w-full' outline gradientDuoTone='greenToBlue'>Update</Button>
+            {
+              currentUser && (
+                <Button onClick={()=>navigate('/create-post')} className='w-full' gradientDuoTone='greenToBlue'>Create a Post</Button>
+              )
+            }
           <div className='flex flex-row justify-between items-center text-red-500'>
             <h1 className='cursor-pointer' onClick={() => setOpenModal(true)}>Delete Account</h1>
             <Modal show={openModal} size="md" position='center' onClose={() => setOpenModal(false)} popup>
