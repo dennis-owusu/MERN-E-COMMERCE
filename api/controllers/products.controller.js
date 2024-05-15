@@ -38,3 +38,13 @@ export const fetchAllProducts = async(req, res, next) =>{
         next(error)
     }
 } 
+
+export const product = async (req, res, next) => {
+   
+    try {
+        const singleProduct = await Product.findById(req.params.productId);
+        res.status(200).json(singleProduct)
+    } catch (error) {
+        next(error)
+    }
+}
