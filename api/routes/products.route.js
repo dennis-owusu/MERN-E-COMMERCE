@@ -7,4 +7,5 @@ router.post('/product', products)
 router.get('/allproducts', fetchAllProducts)
 router.get('/product/:productId', product)
 
+
 export default router
