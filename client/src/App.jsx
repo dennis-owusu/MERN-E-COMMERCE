@@ -11,6 +11,7 @@ import Profile from "./pages/Profile"
 import PrivateRoute from "./components/PrivateRoute"
 import Dashboard from "./pages/Dashboard"
 import Products from "./pages/Products"
+import SinglePage from "./pages/SinglePage"
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="/sign-in" element={<SignIn/>}/>
       <Route path="/products" element={<Products/>}/>
       <Route path="/sign-up" element={<SignUp/>}/>
+      <Route path={`/single-page/:productId`} element={<SinglePage/>}/>
       <Route element={<PrivateRoute/>}>
       <Route path="/dashboard" element={<Dashboard/>}/>
       </Route>

@@ -61,7 +61,7 @@ const Products = () => {
         
         </Link>
          </>
-)) : (<p className='text-center'>No product available</p>)
+)) : (<p className='text-center'>Loading ...</p>)
       }
     </div>
     </>
