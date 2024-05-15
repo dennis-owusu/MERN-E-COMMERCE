@@ -23,7 +23,7 @@ const Products = () => {
 
   return (
     <>
-    <div className='w-full bg-green-300'>
+    <div className='w-full bg-green-300 dark:text-gray-50'>
         <div className='flex flex-col md:flex-row gap-20 justify-center items-center rounded-3xl'>
             <div className=' flex-col mx-20'>
             <h1 className='text-5xl font-bold'>Get The Decibels Delivered To Your Ears Perfectly</h1>

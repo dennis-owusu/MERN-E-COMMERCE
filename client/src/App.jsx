@@ -12,6 +12,7 @@ import PrivateRoute from "./components/PrivateRoute"
 import Dashboard from "./pages/Dashboard"
 import Products from "./pages/Products"
 import SinglePage from "./pages/SinglePage"
+import CreatePost from "./pages/CreatePost"
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
       <Route path="/products" element={<Products/>}/>
       <Route path="/sign-up" element={<SignUp/>}/>
       <Route path={`/single-page/:productId`} element={<SinglePage/>}/>
+      <Route path={`/create-post`} element={<CreatePost/>}/>
       <Route element={<PrivateRoute/>}>
       <Route path="/dashboard" element={<Dashboard/>}/>
       </Route>
