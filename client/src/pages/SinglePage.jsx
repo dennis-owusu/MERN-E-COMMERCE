@@ -24,16 +24,16 @@ const SinglePage = () => {
       
       }, [productId]);
   return (
-    <div className='flex gap-10 min-h-screen justify-center items-center'>
+    <div className='flex flex-col md:flex-row gap-10 min-h-screen justify-center items-center'>
       {
         productData ? (
             <>
-             <div className='mx-20'>
-        <img className='w-[40rem] object-contain h-[40rem] rounded-2xl' src={productData && productData.image}/>
+             <div className='md:mx-20 mx-10'>
+        <img className='w-[40rem] h-[40rem] rounded-2xl' src={productData && productData.image}/>
         </div>
         <div>
-         <div className='mt-10 '>
-             <h1 className='text-3xl text-center font-bold'>{productData && productData.title}</h1>
+         <div className='md:mt-10 '>
+             <h1 className='text-3xl text-center mb-5 font-bold'>{productData && productData.title}</h1>
            <div className='flex gap-20 mb-10 border-b-2 border-gray-200 items-center'>
            <div className="rating flex justify-center">
    <input type="radio" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
@@ -47,7 +47,7 @@ const SinglePage = () => {
            <p className='text-2xl text-orange-400 font-semibold border-b border-gray-200 space-y-10'>${productData && productData.price}</p>
          </div>
          <p className='text-lg'>{productData && productData.description}</p>
-        <div className='flex gap-10 mt-20'>
+        <div className='flex gap-10 md:mt-20 mt-10 justify-center'>
          <Button gradientDuoTone='greenToBlue'>Buy Now</Button>
          <Button gradientDuoTone='greenToBlue' outline>Add to Cart</Button>
         </div>
