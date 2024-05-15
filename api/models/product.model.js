@@ -13,10 +13,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    category: {
-        type: String,
-        default: 'uncategorized'
-    },
+    
     price: {
         type: Number,
         required: true,

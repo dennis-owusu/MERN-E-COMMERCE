@@ -54,7 +54,7 @@ const Products = () => {
   <input type="radio" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
 </div>
 <p className='text-center font-semibold text-xl'>{product.description}</p>
-        <div className='flex gap-16 justify-center items-center'>
+        <div className='flex flex-col gap-16 justify-center items-center'>
         <h1 key={product._id} className='text-bold font-semibold'>{product.title}</h1>
         <p className='text-orange-400 text-2xl font-semibold'>${product.price}</p>
         </div>
