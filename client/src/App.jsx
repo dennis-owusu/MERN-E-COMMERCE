@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Profile from "./pages/Profile"
 import PrivateRoute from "./components/PrivateRoute"
 import Dashboard from "./pages/Dashboard"
+import Products from "./pages/Products"
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/sign-in" element={<SignIn/>}/>
+      <Route path="/products" element={<Products/>}/>
       <Route path="/sign-up" element={<SignUp/>}/>
       <Route element={<PrivateRoute/>}>
       <Route path="/dashboard" element={<Dashboard/>}/>

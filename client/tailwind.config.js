@@ -10,6 +10,6 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [ require('daisyui'), flowbite.plugin() ],
+  plugins: [ require('daisyui'), require('daisyui'), flowbite.plugin(), ],
 }
 

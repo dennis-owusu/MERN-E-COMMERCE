@@ -21,22 +21,6 @@ export const products = async (req, res, next) => {
         next(error)
     }
 }
-
-export const fetchProduct = async(req, res, next) => {
-    try {
-        const fetchProducts = await Product.findByIdAndUpdate(req.params._id,{
-            title: req.body.title,
-            description: req.body.description,
-            category: req.body.category,
-            image: req.body.image,
-            price: req.body.price
-        }, {new: true})
-        res.status(200).json(fetchProducts)
-    } catch (error) {
-        next(error)
-    }
-}
-
 export const fetchAllProducts = async(req, res, next) =>{
     try {
         const products = await Product.find({
@@ -48,10 +32,9 @@ export const fetchAllProducts = async(req, res, next) =>{
             ...(req.query.image && { image: req.query.image }),
         })
 
-        const totalProduct = await Product.countDocuments()
 
-        res.status(200).json(products, totalProduct)
+        res.status(200).json({products})
     } catch (error) {
         next(error)
     }
-}
+} 
