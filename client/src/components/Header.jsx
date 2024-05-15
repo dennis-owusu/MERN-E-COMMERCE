@@ -64,7 +64,7 @@ const Header = () => {
             <Link to='/service' className='text-lg'>Services</Link>
         </Navbar.Link>
         <Navbar.Link href="#" active={path === '/pricing'} as={'div'}>
-            <Link to='/pricing' className='text-lg'>Pricing</Link>
+            <Link to='/products' className='text-lg'>Products</Link>
         </Navbar.Link> 
         <Navbar.Link href="#" active={path === '/contact'} as={'div'}>
             <Link to='/contact' className='text-lg'>Contact</Link>
