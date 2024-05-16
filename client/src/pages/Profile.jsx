@@ -164,7 +164,7 @@ const Profile = () => {
             </div>
         </div>
           <form onSubmit={handleSubmit} className='flex justify-center items-center w-full'>
-          <div className='space-y-3 w-full mx-20 lg:mx-56'>
+          <div className='space-y-3 w-full mx-20 lg:mx-80'>
            <TextInput type='text' id='username' defaultValue={currentUser.username} onChange={handleChange}/>
             <TextInput type='email' id='email' defaultValue={currentUser.email} onChange={handleChange}/>
             <TextInput type='password' id='password' placeholder='Password' onChange={handleChange}/>
