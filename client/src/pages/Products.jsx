@@ -1,8 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
+import { Spinner, TextInput } from 'flowbite-react'
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 const Products = () => {
   const [productsData, setProductData] = useState([])
+  const [filterData, setFilterData] = useState([])
   console.log(productsData)
 
   useEffect(()=> {
@@ -11,7 +13,8 @@ const Products = () => {
         const res = await fetch('/api/user/allproducts')
         const data = await res.json()
         if(res.ok){
-          setProductData(data.products.slice(0, 8))
+          setProductData(data.products.slice(0, 10))
+          setFilterData(data.products.slice(0, 10));
         }
       } catch (error) {
         console.log(error)
@@ -20,10 +23,15 @@ const Products = () => {
     fetchData()
   }, [])
 
+  const handleFilter = (value) =>{
+    const response = productsData.filter(data => data.title.toLowerCase().includes(value.toLowerCase()));
+    setFilterData(response)
+  }
 
   return (
     <>
     <div className='w-full bg-green-300 dark:text-gray-50'>
+      
         <div className='flex flex-col md:flex-row gap-20 justify-center items-center rounded-3xl'>
             <div className=' flex-col mx-20'>
             <h1 className='text-5xl font-bold'>Get The Decibels Delivered To Your Ears Perfectly</h1>
@@ -37,12 +45,13 @@ const Products = () => {
 </div>
      </div>
     </div>
-    <div className='mt-20 mb-20'>
+    <div className='mt-20 mb-20 flex justify-between items-center mx-20'>
       <h1 className='text-center font-semibold text-4xl'>Best Sales Of Our Ear Product</h1>
+      <TextInput onChange={(e)=>handleFilter(e.target.value)} className='w-full max-w-96' type='search' placeholder='Search...'/>
     </div>
-    <div className='flex flex-wrap justify-center items-center gap-5'> 
+    <div className='grid grid-cols-5 grid-rows-2 justify-center items-center gap-5'> 
       {
-       productsData.length > 0 ? productsData.map((product)=>( 
+       filterData.length > 0 ? filterData.map((product)=>( 
          <>
         <Link to={`/single-page/${product._id}`}>
         <img src={product.image} className='w-68 h-72 rounded-3xl'/>
@@ -53,15 +62,17 @@ const Products = () => {
   <input type="radio" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
   <input type="radio" name="rating-2" className="mask mask-star-2 bg-yellow-400" />
 </div>
-<p className='text-center font-semibold text-xl'>{product.description}</p>
-        <div className='flex flex-col gap-16 justify-center items-center'>
-        <h1 key={product._id} className='text-bold font-semibold'>{product.title}</h1>
+        <div className='flex flex-col justify-center items-center'>
+        <h1 key={product._id} className='text-bold text-3xl font-semibold'>{product.title}</h1>
         <p className='text-orange-400 text-2xl font-semibold'>${product.price}</p>
         </div>
         
         </Link>
          </>
-)) : (<p className='text-center'>Loading ...</p>)
+)) : (<div className=' flex items-center justify-center mx-auto'>
+  <Spinner className=''/>
+  <div></div>
+</div>)
       }
     </div>
     </>

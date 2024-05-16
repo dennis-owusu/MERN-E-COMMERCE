@@ -5,10 +5,10 @@ import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-
 
 const FooterComp = () => {
   return (
-    <div>
+    <div className='border-t-4 border-teal-400 rounded-2xl'>
 
     <Footer container>
-      <div className="w-full">
+      <div className="w-full ">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div>
             <Footer.Brand
