@@ -90,7 +90,9 @@ const Profile = () => {
           dispatch(updateSuccess(data));
         }
       } catch (error) {
-        console.log(error)
+        toast.error(error.message, {
+          position:'top-center'
+        })
       }
     }
 
@@ -112,7 +114,9 @@ const Profile = () => {
           dispatch(deleteFailure(data.message))
         }
       } catch (error) {
-        console.log(error)
+        toast.error(error.message, {
+          position:'top-center'
+        })
       }
     }
 
@@ -130,18 +134,16 @@ const Profile = () => {
           navigate('/sign-in')
         }
       } catch (error) {
-<<<<<<< HEAD
       toast.error(error.message, {
         position: 'top-center'
       })
       }
     }
     
-=======
-        console.log(error)
-      }
-    }
->>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
+        toast.error(error.message, {
+          position:'top-center'
+        })
+      
   return (
     <div className='w-full'>
         <div className='flex flex-col justify-center items-center mx-auto'>

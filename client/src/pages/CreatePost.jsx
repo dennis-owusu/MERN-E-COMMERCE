@@ -16,11 +16,6 @@ const CreatePost = () => {
     const [imageUploadError, setImageUploadError] = useState(null);
     const [publishError, setPublishError] = useState(null);
 
-<<<<<<< HEAD
-=======
-    console.log(formData)
-
->>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -37,10 +32,13 @@ const CreatePost = () => {
                 navigate('/products')  
             }else{
                 toast.error(data.message, {
+                  position: 'top-center'
             })
         }
         } catch (error) {
-            console.log(error)
+          toast.error(error.message, {
+            position: 'top-center'
+      })
         }
     }
     const handleUpdloadImage = async () => {
@@ -76,7 +74,6 @@ const CreatePost = () => {
         } catch (error) {
           setImageUploadError('Image upload failed');
           setImageUploadProgress(null);
-          console.log(error);
         }
       };
      

@@ -7,7 +7,6 @@ import FooterComp from "./components/FooterComp"
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Profile from "./pages/Profile"
 import PrivateRoute from "./components/PrivateRoute"
 import Dashboard from "./pages/Dashboard"
 import Products from "./pages/Products"

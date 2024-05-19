@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { signInFailure, signInStart, signInSuccess } from '../redux/user/userSlice';
 import OAuth from '../components/OAuth';
 
@@ -13,10 +13,6 @@ const SignIn = () => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({})
   const [loading, setLoading] = useState(false)
-<<<<<<< HEAD
-=======
-  console.log(formData)
->>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.id]: e.target.value.trim()})
@@ -46,13 +42,9 @@ const SignIn = () => {
         navigate('/') 
       }
     } catch (error) {
-<<<<<<< HEAD
       toast.error(error.message,{
         position: 'top-center'
       })
-=======
-      console.log(error)
->>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
       setLoading(false)
     }
   }

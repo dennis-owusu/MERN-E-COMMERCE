@@ -41,7 +41,9 @@ const OAuth = () => {
         })
       }
     } catch (error) {
-      console.log(error)
+      toast.error(error.message, {
+        position: 'top-center'
+      })
     }
   }
   return (
