@@ -1,5 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
+<<<<<<< HEAD
 import { TextInput } from 'flowbite-react'
+=======
+import { Spinner, TextInput } from 'flowbite-react'
+>>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 const Products = () => {
@@ -69,7 +73,14 @@ const Products = () => {
         
         </Link>
          </>
+<<<<<<< HEAD
 )) : (<p className='text-center'>Loading...</p>)
+=======
+)) : (<div className=' flex items-center justify-center mx-auto'>
+  <Spinner className=''/>
+  <div></div>
+</div>)
+>>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
       }
     </div>
     </>

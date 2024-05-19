@@ -1,10 +1,18 @@
 import { Button } from 'flowbite-react'
+<<<<<<< HEAD
 import { useEffect, useState } from 'react'
+=======
+import React, { useEffect, useState } from 'react'
+>>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
 import { useParams } from 'react-router-dom'
 
 const SinglePage = () => {
     const [productData, setProductData] = useState(null)
     const {productId} = useParams()
+<<<<<<< HEAD
+=======
+    console.log(productId)
+>>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
     useEffect(() => {
         const fetchProducts = async () => {
           try {

@@ -16,6 +16,11 @@ const CreatePost = () => {
     const [imageUploadError, setImageUploadError] = useState(null);
     const [publishError, setPublishError] = useState(null);
 
+<<<<<<< HEAD
+=======
+    console.log(formData)
+
+>>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {

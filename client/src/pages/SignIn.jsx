@@ -13,6 +13,10 @@ const SignIn = () => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({})
   const [loading, setLoading] = useState(false)
+<<<<<<< HEAD
+=======
+  console.log(formData)
+>>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.id]: e.target.value.trim()})
@@ -42,9 +46,13 @@ const SignIn = () => {
         navigate('/') 
       }
     } catch (error) {
+<<<<<<< HEAD
       toast.error(error.message,{
         position: 'top-center'
       })
+=======
+      console.log(error)
+>>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
       setLoading(false)
     }
   }

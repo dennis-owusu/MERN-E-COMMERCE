@@ -10,6 +10,10 @@ const SignUp = () => {
   const [formData, setFormData] = useState({})
   const [errorMessage, setErrorMessage] = useState(null)
   const [loading, setLoading] = useState(false)
+<<<<<<< HEAD
+=======
+  console.log(formData)
+>>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.id]: e.target.value.trim()})
@@ -39,9 +43,13 @@ const SignUp = () => {
         navigate('/sign-in')
       }
     } catch (error) {
+<<<<<<< HEAD
       toast.error(error.message, {
         position: 'top-center'
       })
+=======
+      console.log(error)
+>>>>>>> 3ee5f5806a5db214ce4942ab3829c6aa75a681b8
     }
   }
   return (
