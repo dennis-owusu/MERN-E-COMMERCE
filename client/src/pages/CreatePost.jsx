@@ -16,8 +16,6 @@ const CreatePost = () => {
     const [imageUploadError, setImageUploadError] = useState(null);
     const [publishError, setPublishError] = useState(null);
 
-    console.log(formData)
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {

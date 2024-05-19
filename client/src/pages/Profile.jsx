@@ -130,9 +130,12 @@ const Profile = () => {
           navigate('/sign-in')
         }
       } catch (error) {
-        console.log(error)
+      toast.error(error.message, {
+        position: 'top-center'
+      })
       }
     }
+    
   return (
     <div className='w-full'>
         <div className='flex flex-col justify-center items-center mx-auto'>

@@ -13,7 +13,6 @@ const SignIn = () => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({})
   const [loading, setLoading] = useState(false)
-  console.log(formData)
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.id]: e.target.value.trim()})
@@ -43,7 +42,9 @@ const SignIn = () => {
         navigate('/') 
       }
     } catch (error) {
-      console.log(error)
+      toast.error(error.message,{
+        position: 'top-center'
+      })
       setLoading(false)
     }
   }

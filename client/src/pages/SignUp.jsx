@@ -10,7 +10,6 @@ const SignUp = () => {
   const [formData, setFormData] = useState({})
   const [errorMessage, setErrorMessage] = useState(null)
   const [loading, setLoading] = useState(false)
-  console.log(formData)
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.id]: e.target.value.trim()})
@@ -40,7 +39,9 @@ const SignUp = () => {
         navigate('/sign-in')
       }
     } catch (error) {
-      console.log(error)
+      toast.error(error.message, {
+        position: 'top-center'
+      })
     }
   }
   return (
